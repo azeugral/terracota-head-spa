@@ -39,11 +39,12 @@
     <a href="#casa">A casa</a>
     <a href="#head-spa">O Head Spa</a>
     <a href="#experiencias">Experiências</a>
+    <a href="#agendar">Agendar</a>
     <a href="#videos">Vídeos</a>
     <a href="#visita">Visita</a>
   </nav>
   <div class="topo-acoes">
-    <a class="btn btn-cheio btn-p" href="https://www.trinks.com/terracota-head-spa-e-massagens-" target="_blank" rel="noopener">Agendar</a>
+    <a class="btn btn-cheio btn-p" href="#agendar">Agendar</a>
     <button class="topo-menu" type="button" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu"><i></i><i></i></button>
   </div>
 </header>
@@ -62,7 +63,7 @@
   </div>
   <p class="hero-frase hero-d">Um lugar feito para <span class="mao">desacelerar</span></p>
   <div class="botoes hero-d">
-    <a class="btn btn-claro" href="https://www.trinks.com/terracota-head-spa-e-massagens-" target="_blank" rel="noopener">Agendar horário</a>
+    <a class="btn btn-claro" href="#agendar">Agendar horário</a>
     <a class="btn btn-linha-clara" href="https://wa.me/5519999243936?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20na%20Terracota." target="_blank" rel="noopener">Falar no WhatsApp</a>
   </div>
 </section>
@@ -134,7 +135,7 @@
     <span class="filete" aria-hidden="true"><i></i></span>
     <p class="script" aria-hidden="true">rituais</p>
     <h2>Escolha o seu <b>momento.</b></h2>
-    <p class="intro">Reserve em poucos toques. O agendamento online mostra os horários livres de cada profissional.</p>
+    <p class="intro">Valores por pessoa. Escolha o seu ritual e peça o horário em poucos toques.</p>
   </div>
 
   <div class="abas rev" role="tablist" aria-label="Categorias">
@@ -228,9 +229,71 @@
   </div>
 
   <div class="botoes rev">
-    <a class="btn btn-cheio" href="https://www.trinks.com/terracota-head-spa-e-massagens-" target="_blank" rel="noopener">Agendar online</a>
-    <a class="btn btn-linha" href="https://wa.me/5519999243936?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20na%20Terracota." target="_blank" rel="noopener">Tirar uma dúvida</a>
+    <a class="btn btn-cheio" href="#agendar">Pedir meu horário</a>
+    <a class="btn btn-linha" href="https://www.trinks.com/terracota-head-spa-e-massagens-" target="_blank" rel="noopener">Agenda online</a>
   </div>
+</section>
+
+<section class="sec agendar" id="agendar">
+  <div class="cab rev">
+    <span class="filete" aria-hidden="true"><i></i></span>
+    <p class="script" aria-hidden="true">reserve</p>
+    <h2>Peça o seu <b>horário.</b></h2>
+    <p class="intro">Escolha o ritual e o melhor período. O pedido chega pronto no nosso WhatsApp e a gente confirma o horário com você.</p>
+  </div>
+  <form class="pedido rev" id="form" novalidate>
+    <div class="campo">
+      <label class="rot" for="f-nome">Seu nome</label>
+      <input id="f-nome" name="nome" autocomplete="given-name" placeholder="Como podemos te chamar?" required>
+    </div>
+    <fieldset class="campo">
+      <legend class="rot">Experiência</legend>
+      <div class="ops ops-3" data-nome="cat">
+        <label class="op"><input type="radio" name="cat" value="head" checked><span>Head Spa</span></label>
+        <label class="op"><input type="radio" name="cat" value="day"><span>Spa Day</span></label>
+        <label class="op"><input type="radio" name="cat" value="mas"><span>Massagens</span></label>
+      </div>
+    </fieldset>
+    <fieldset class="campo">
+      <legend class="rot">Ritual</legend>
+      <div class="ops ops-rit" data-nome="ritual">
+          <label class="op" data-cat="head"><input type="radio" name="ritual" value="Head Spa Brisa" data-dur="1 h"><span>Head Spa Brisa<small>1 h</small></span></label>
+          <label class="op" data-cat="head"><input type="radio" name="ritual" value="Head Spa Raiz" data-dur="1 h 30"><span>Head Spa Raiz<small>1 h 30</small></span></label>
+          <label class="op" data-cat="day" hidden><input type="radio" name="ritual" value="Spa Day Equilíbrio" data-dur="1 h 30"><span>Spa Day Equilíbrio<small>1 h 30</small></span></label>
+          <label class="op" data-cat="day" hidden><input type="radio" name="ritual" value="Spa Day Imersão" data-dur="2 h"><span>Spa Day Imersão<small>2 h</small></span></label>
+          <label class="op" data-cat="day" hidden><input type="radio" name="ritual" value="Spa Day Refúgio" data-dur="3 h"><span>Spa Day Refúgio<small>3 h</small></span></label>
+          <label class="op" data-cat="mas" hidden><input type="radio" name="ritual" value="Massagem Relaxante" data-dur="1 h"><span>Massagem Relaxante<small>1 h</small></span></label>
+          <label class="op" data-cat="mas" hidden><input type="radio" name="ritual" value="Drenagem Linfática" data-dur="1 h"><span>Drenagem Linfática<small>1 h</small></span></label>
+          <label class="op" data-cat="mas" hidden><input type="radio" name="ritual" value="Massagem Terapêutica" data-dur="1 h"><span>Massagem Terapêutica<small>1 h</small></span></label>
+          <label class="op" data-cat="mas" hidden><input type="radio" name="ritual" value="Reflexologia com Escalda-pés" data-dur="1 h"><span>Reflexologia com Escalda-pés<small>1 h</small></span></label>
+          <label class="op" data-cat="mas" hidden><input type="radio" name="ritual" value="Foot Spa" data-dur="1 h"><span>Foot Spa<small>1 h</small></span></label>
+          <label class="op" data-cat="mas" hidden><input type="radio" name="ritual" value="Massagem Facial" data-dur="40 min"><span>Massagem Facial<small>40 min</small></span></label>
+      </div>
+    </fieldset>
+    <div class="duas">
+      <div class="campo">
+        <label class="rot" for="f-dia">Dia de preferência</label>
+        <input id="f-dia" name="dia" placeholder="Ex.: sábado, 21/11">
+      </div>
+      <fieldset class="campo">
+        <legend class="rot">Período</legend>
+        <div class="ops ops-3" data-nome="periodo">
+          <label class="op"><input type="radio" name="periodo" value="Manhã"><span>Manhã</span></label>
+          <label class="op"><input type="radio" name="periodo" value="Tarde"><span>Tarde</span></label>
+          <label class="op"><input type="radio" name="periodo" value="Noite"><span>Noite</span></label>
+        </div>
+      </fieldset>
+    </div>
+    <div class="campo">
+      <label class="rot" for="f-obs">Algo que devemos saber? <small>(opcional)</small></label>
+      <textarea id="f-obs" name="obs" rows="3" placeholder="Alergias, gestação, presente para alguém…"></textarea>
+    </div>
+    <p class="aviso-form" id="f-aviso" role="alert" hidden></p>
+    <div class="form-fim">
+      <button class="btn btn-cheio" type="submit">Enviar pedido pelo WhatsApp</button>
+      <p class="miudo">Prefere ver os horários livres na agenda? <a class="link" href="https://www.trinks.com/terracota-head-spa-e-massagens-" target="_blank" rel="noopener">Agendar pelo Trinks</a></p>
+    </div>
+  </form>
 </section>
 
 <section class="sec videos escura" id="videos">
@@ -297,7 +360,7 @@
   <div class="assinatura rev" role="img" aria-label="Terracota Head Spa e Massagens"><span class="marca"></span><span class="nome"></span><span class="hero-sub">Head Spa &amp; Massagens</span></div>
   <h2 class="rev">E se a próxima hora fosse <span class="mao">só sua?</span></h2>
   <div class="botoes rev">
-    <a class="btn btn-claro" href="https://www.trinks.com/terracota-head-spa-e-massagens-" target="_blank" rel="noopener">Agendar horário</a>
+    <a class="btn btn-claro" href="#agendar">Agendar horário</a>
     <a class="btn btn-linha-clara" href="https://wa.me/5519999243936?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20na%20Terracota." target="_blank" rel="noopener">Falar no WhatsApp</a>
   </div>
 </section>
@@ -311,7 +374,7 @@
 </footer>
 
 <div class="barra" id="barra" hidden>
-  <a class="btn btn-cheio" href="https://www.trinks.com/terracota-head-spa-e-massagens-" target="_blank" rel="noopener">Agendar</a>
+  <a class="btn btn-cheio" href="#agendar">Agendar</a>
   <a class="btn btn-linha" href="https://wa.me/5519999243936?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20na%20Terracota." target="_blank" rel="noopener">WhatsApp</a>
 </div>
 

@@ -342,3 +342,43 @@ h3{font-weight:500;letter-spacing:-.005em}
   .script{font-size:clamp(3.6rem,17vw,4.6rem)}
 }
 @media (max-width:700px){.final h2 .mao,.faixa .mao{display:block;line-height:.95;margin-top:.12em}}
+
+/* v6 */
+/* pedido de agendamento */
+.agendar{--fundo:var(--papel)}
+.pedido{position:relative;max-width:720px;margin:0 auto;padding:clamp(30px,5vw,52px);background:var(--creme);border:1px solid var(--linha)}
+.pedido::before{content:"";position:absolute;inset:7px;border:1px solid var(--linha-2);pointer-events:none}
+.pedido>*{position:relative}
+.campo{border:0;margin:0 0 22px;padding:0;min-width:0}
+.rot{display:block;padding:0;margin-bottom:9px;font:500 .8rem/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--terra)}
+.rot small{font-weight:300;letter-spacing:.04em;text-transform:none;color:var(--suave)}
+.pedido input:not([type=radio]),.pedido textarea{width:100%;padding:14px 16px;font:300 1rem/1.4 var(--sans);color:var(--tinta);background:var(--papel);border:1px solid var(--linha-2);border-radius:0;outline:0;transition:border-color .3s var(--ease),box-shadow .3s var(--ease);-webkit-appearance:none;appearance:none}
+.pedido textarea{resize:vertical;min-height:92px}
+.pedido input::placeholder,.pedido textarea::placeholder{color:#A8968A}
+.pedido input:focus,.pedido textarea:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(132,58,33,.1)}
+.ops{display:grid;gap:8px}
+.ops-3{grid-template-columns:repeat(3,1fr)}
+.ops-rit{grid-template-columns:repeat(2,1fr)}
+.op{position:relative;cursor:pointer}
+.op input{position:absolute;opacity:0;pointer-events:none}
+.op span{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;height:100%;padding:10px 12px;text-align:center;font:400 .95rem/1.25 var(--sans);color:var(--tinta);background:var(--papel);border:1px solid var(--linha-2);transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
+.op small{font-size:.8rem;font-weight:300;color:var(--suave);white-space:nowrap;transition:color .3s var(--ease)}
+.op:hover span{border-color:var(--terra)}
+.op input:checked+span{background:var(--terra);border-color:var(--terra);color:var(--creme)}
+.op input:checked+span small{color:rgba(247,235,214,.78)}
+.op input:focus-visible+span{outline:2px solid var(--terra);outline-offset:2px}
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.aviso-form{margin:-6px 0 16px;font-size:.92rem;color:var(--terra);text-align:center}
+.form-fim{display:grid;justify-items:center;gap:14px;text-align:center}
+.form-fim .btn{width:100%;max-width:420px}
+.item{display:flex;flex-direction:column}
+.item .escolhe{align-self:flex-start;margin-top:auto;padding-top:18px;font:500 .78rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--terra);text-decoration:none}
+.item .escolhe::after{content:"";display:block;height:1px;margin-top:6px;background:var(--linha);transform-origin:left;transition:transform .4s var(--ease),background .4s var(--ease)}
+.item .escolhe:hover::after{background:var(--terra);transform:scaleX(1.15)}
+@media (max-width:700px){
+  .pedido{padding:28px 18px 30px}
+  .duas{grid-template-columns:1fr}
+  .ops-rit{grid-template-columns:1fr 1fr}
+  .op span{font-size:.9rem;padding:9px 8px;flex-direction:column;gap:2px}
+  .campo{margin-bottom:18px}
+}

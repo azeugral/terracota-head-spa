@@ -88,4 +88,59 @@
       if (e.key === 'ArrowLeft') ativa(abas[(i - 1 + abas.length) % abas.length], true);
     });
   });
+
+  // pedido de agendamento: monta a mensagem e abre o WhatsApp
+  var form = document.getElementById('form');
+  if (form) {
+    var aviso = document.getElementById('f-aviso');
+    var rits = form.querySelectorAll('.ops-rit .op');
+    function filtra(cat) {
+      rits.forEach(function (o) {
+        var on = o.getAttribute('data-cat') === cat;
+        o.hidden = !on;
+        if (!on) o.querySelector('input').checked = false;
+      });
+    }
+    form.querySelectorAll('input[name=cat]').forEach(function (r) {
+      r.addEventListener('change', function () { filtra(r.value); });
+    });
+    // tocar num ritual da tabela já escolhe ele no pedido
+    document.querySelectorAll('.painel .item h3').forEach(function (h) {
+      var nome = h.textContent.trim();
+      var alvo = form.querySelector('input[name=ritual][value="' + nome + '"]');
+      if (!alvo) return;
+      var item = h.closest('.item');
+      var a = document.createElement('a');
+      a.className = 'escolhe'; a.href = '#agendar'; a.textContent = 'Quero este';
+      a.addEventListener('click', function () {
+        var cat = alvo.closest('.op').getAttribute('data-cat');
+        form.querySelector('input[name=cat][value=' + cat + ']').checked = true;
+        filtra(cat); alvo.checked = true;
+      });
+      item.appendChild(a);
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var nome = form.nome.value.trim();
+      var rit = form.querySelector('input[name=ritual]:checked');
+      var per = form.querySelector('input[name=periodo]:checked');
+      var falta = [];
+      if (!nome) falta.push('seu nome');
+      if (!rit) falta.push('o ritual');
+      if (!per) falta.push('o período');
+      if (falta.length) {
+        aviso.textContent = 'Falta só ' + falta.join(', ').replace(/, ([^,]*)$/, ' e $1') + '.';
+        aviso.hidden = false;
+        return;
+      }
+      aviso.hidden = true;
+      var dia = form.dia.value.trim(), obs = form.obs.value.trim();
+      var t = 'Olá! Sou ' + nome + ' e gostaria de agendar na Terracota.\n\n' +
+        '*Ritual:* ' + rit.value + ' (' + rit.getAttribute('data-dur') + ')\n' +
+        (dia ? '*Dia:* ' + dia + '\n' : '') +
+        '*Período:* ' + per.value +
+        (obs ? '\n*Observação:* ' + obs : '');
+      window.open('https://wa.me/5519999243936?text=' + encodeURIComponent(t), '_blank', 'noopener');
+    });
+  }
 })();
