@@ -38,7 +38,7 @@
       es.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    }, { rootMargin: '0px 0px 6% 0px', threshold: 0.01 });
     revs.forEach(function (el) { io.observe(el); });
 
     // vídeos só tocam quando aparecem
@@ -53,6 +53,12 @@
   } else {
     revs.forEach(function (el) { el.classList.add('visto'); });
   }
+
+  // tudo carregado de saída: fotos decodificadas e vídeos no buffer antes de rolar
+  document.querySelectorAll('img').forEach(function (i) { if (i.decode) i.decode().catch(function () {}); });
+  window.addEventListener('load', function () {
+    document.querySelectorAll('video').forEach(function (v) { v.preload = 'auto'; if (v.readyState < 2) v.load(); });
+  });
 
   // carrossel de vídeos começa no do meio
   var reels = document.querySelector('.reels');
