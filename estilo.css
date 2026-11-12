@@ -2,7 +2,7 @@
 :root{
   --terra:#843A21; --terra-2:#6F2F1A; --musgo:#3E4728; --musgo-2:#333B20;
   --argila:#C0A393; --creme:#F7EBD6; --papel:#FCF6EA; --tinta:#3A261C; --suave:#6E594C;
-  --serifa:"Fraunces",Georgia,serif; --sans:"Fira Sans",system-ui,sans-serif;
+  --serifa:"Fira Sans",system-ui,sans-serif; --mao:"Mrs Saint Delafield","Segoe Script",cursive; --sans:"Fira Sans",system-ui,sans-serif;
   --ease:cubic-bezier(.16,.84,.32,1);
   --lado:clamp(20px,5vw,64px);
   --fundo:var(--papel); --linha:rgba(132,58,33,.42); --linha-2:rgba(132,58,33,.18);
@@ -33,7 +33,7 @@ p{text-wrap:pretty}
 
 /* logo em máscara: pega a cor do texto */
 .nome,.marca,.arte{display:block;background:currentColor;-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
-.nome{--m:url(assets/nome.svg);aspect-ratio:4456/784}
+.nome{--m:url(assets/nome.svg);aspect-ratio:4932/828}
 .marca{--m:url(assets/marca-nav.svg);aspect-ratio:700/562}
 /* arte de fundo: o símbolo apagado atrás do conteúdo */
 .arte{--m:url(assets/marca.svg);position:absolute;left:50%;top:clamp(26px,4.5vw,56px);width:min(600px,88vw);aspect-ratio:700/562;transform:translateX(-50%);background:var(--creme);opacity:.06;pointer-events:none}
@@ -298,3 +298,47 @@ p{text-wrap:pretty}
 }
 .hero .chapeu{text-wrap:balance}
 @media (max-width:700px){.hero .chapeu{font-size:.95rem}.hero .arte{width:150vw;transform:translate(-50%,-42%)}}
+
+/* v5 */
+/* jogo de fontes dos posts: Fira Sans leve, a palavra forte em negrito e a manuscrita por trás */
+h2,h3{font-variation-settings:normal;letter-spacing:-.015em}
+h2{font-weight:300;font-size:clamp(1.85rem,4.4vw,3rem);line-height:1.12}
+h2 b,h3 b{font-weight:600;color:var(--terra)}
+.escura h2 b{color:var(--argila)}
+h3{font-weight:500;letter-spacing:-.005em}
+.chapeu{font-family:var(--sans);font-style:normal;font-size:.98rem;letter-spacing:.02em}
+.script{position:relative;font:400 clamp(4rem,9vw,6.6rem)/.8 var(--mao);color:var(--terra);opacity:.3;margin-bottom:-.3em;white-space:nowrap;pointer-events:none;user-select:none}
+.escura .script{color:var(--argila);opacity:.5}
+.cab h2{position:relative;margin-top:0}
+.mao{display:inline-block;font:400 2.15em/.5 var(--mao);letter-spacing:0;margin:0 .06em 0 .04em;vertical-align:-.06em;color:var(--argila);white-space:nowrap}
+.hero-frase{font-family:var(--sans);font-weight:300;font-variation-settings:normal;margin-bottom:26px}
+.hero-frase .mao{color:var(--creme)}
+.faixa blockquote{font-style:normal;font-weight:300;font-size:clamp(1.5rem,3.8vw,2.5rem);line-height:1.3}
+.faixa .mao{color:#FFF8EA}
+.final h2{font-style:normal;margin-bottom:38px}
+.trio-texto .script{font-size:clamp(3rem,5.6vw,4.4rem)}
+.trio-texto h3{margin-top:0;position:relative}
+.item .dur{font-style:normal;font-weight:300}
+.item .preco,.abas button{font-weight:500}
+.abas button{font-size:1.05rem;letter-spacing:.01em}
+.item h3{font-size:1.25rem}
+.avisos h3,.visita-info h3{font-weight:500}
+/* ramo: a sombra de folhas do post "Cor do aconchego", apagada no fundo */
+.ramo{display:block;width:min(64vw,720px);aspect-ratio:1400/956;background:var(--terra);opacity:.085;-webkit-mask:url(assets/ramo.webp) center/contain no-repeat;mask:url(assets/ramo.webp) center/contain no-repeat;pointer-events:none}
+.sec>.ramo,.final>.ramo{position:absolute;z-index:0}
+.ramo-d{right:-6%;top:-2%;transform:scaleX(-1) rotate(-8deg)}
+.ramo-e{left:-6%;top:-2%;transform:rotate(-8deg)}
+.visita>.ramo-d{top:auto;bottom:6%;transform:scale(-1,-1) rotate(-8deg)}
+.final{overflow:hidden}
+.final>.ramo{background:var(--creme);opacity:.07;top:auto;bottom:-8%;width:min(58vw,640px)}
+.final>.ramo-e{transform:scaleY(-1) rotate(-6deg)}
+.final>.ramo-d{transform:scale(-1,-1) rotate(-6deg)}
+.final>*:not(.quadro):not(.ramo){position:relative;z-index:1}
+@media (max-width:700px){
+  .ramo{width:118vw;opacity:.07}
+  .ramo-d{right:-34%}.ramo-e{left:-34%}
+  .final>.ramo{width:110vw}
+  .mao{font-size:2em}
+  .script{font-size:clamp(3.6rem,17vw,4.6rem)}
+}
+@media (max-width:700px){.final h2 .mao,.faixa .mao{display:block;line-height:.95;margin-top:.12em}}
